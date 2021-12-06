@@ -41,6 +41,13 @@ function TestLuaVectorLuaData(p)
     --     v[i].m_i = v[i].m_i + 10
     --     v[i].m_s = v[i].m_s.."==="
     -- end
+
+    log_print("change data more")
+    local d = LuaData:new()
+    d.m_i = 666
+    d.m_s = "abc000"
+    v[0] = d
+    d:delete()
 end
 
 log_print("lua_vector 结束")

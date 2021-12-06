@@ -21,9 +21,9 @@ int main()
 	getcwd(pwd, 255);
 	cout << "主函数 开始" << pwd << endl;
 
-//	TestLuaVector();
+	TestLuaVector();
 //	TestLuaMap();
-	TestLuaSet();
+//	TestLuaSet();
 //	TestLuaData();
 
 	cout << "主函数 结束" << endl;
