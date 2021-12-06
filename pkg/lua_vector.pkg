@@ -1,0 +1,18 @@
+$#include "cpp_tolua/lua_data.h"
+$#include "cpp_tolua/lua_vector.h"
+
+class lua_vector : public vector
+{
+    TOLUA_TEMPLATE_BIND(T, int, LuaData);
+
+public:
+	T& get(int index);
+
+public:
+    int size() const;
+    void push_back(const T&);
+    T& operator[](int);
+};
+
+extern lua_vector<int>* ToLuaVectorInt(void* p);
+extern lua_vector<LuaData>* ToLuaVectorLuaData(void* p);

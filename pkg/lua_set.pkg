@@ -1,0 +1,19 @@
+$#include "cpp_tolua/lua_data.h"
+$#include "cpp_tolua/lua_set.h"
+
+class lua_set : public set
+{
+    TOLUA_TEMPLATE_BIND(T, int, LuaData);
+public:
+    bool has(T) const;
+    set<T>::iterator lua_begin();
+    bool lua_end(set<T>::iterator);
+    set<T>::iterator lua_next(set<T>::iterator);
+    const T& lua_value(set<T>::iterator);
+public:
+    int size() const;
+    void insert(T);
+};
+
+extern lua_set<int>* ToLuaSetInt(void* p);
+extern lua_set<LuaData>* ToLuaSetLuaData(void* p);

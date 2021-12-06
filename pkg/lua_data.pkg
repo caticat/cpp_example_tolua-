@@ -1,0 +1,24 @@
+$#include "cpp_tolua/lua_data.h"
+
+struct LuaDataP
+{
+public:
+	int m_i;
+	string m_s;
+	vector<int> m_vec;
+};
+
+class LuaData
+{
+public:
+    LuaData();
+    ~LuaData();
+    string toString() const;
+public:
+	int m_i;
+	string m_s;
+	vector<int> m_vec;
+    LuaDataP m_p;
+};
+
+extern LuaData* ToLuaData(void* p);

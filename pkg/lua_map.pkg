@@ -1,0 +1,21 @@
+$#include "cpp_tolua/lua_data.h"
+$#include "cpp_tolua/lua_map.h"
+
+class lua_map : public map
+{
+    TOLUA_TEMPLATE_BIND(K V, int int, int LuaData);
+public:
+    V& get(K k);
+    map<K, V>::iterator lua_begin();
+    bool lua_end(map<K, V>::iterator);
+    map<K, V>::iterator lua_next(map<K, V>::iterator);
+    const K& lua_first(map<K, V>::iterator);
+    V& lua_second(map<K, V>::iterator);
+public:
+    int size() const;
+    V& operator[](K k);
+    void insert(std::pair<K, V>);
+};
+
+extern lua_map<int, int>* ToLuaMapIntInt(void* p);
+extern lua_map<int, LuaData>* ToLuaMapIntLuaData(void* p);
